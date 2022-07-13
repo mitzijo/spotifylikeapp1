@@ -1,3 +1,5 @@
+package com.spotifylikeapp;
+
 import java.io.File; 
 import java.io.IOException; 
 import java.util.Scanner; 
@@ -112,8 +114,8 @@ public class SpotifyLikeApp {
     public static void play() {
 
         // open the audio file
-        // src\library\example audio\cropped_wav\Checkie_Brown_-_11_-_Wirklich_Wichtig_CB_27.wav
-        final File file = new File("./src/library/example audio/cropped_wav/Checkie_Brown_-_11_-_Wirklich_Wichtig_CB_27.wav");
+        // src\library\example audio\cropped_wav\The-Dubbstyle-Zumbido.wav
+        final File file = new File("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/The-Dubbstyle-Zumbido.wav");
 
         try {
         
