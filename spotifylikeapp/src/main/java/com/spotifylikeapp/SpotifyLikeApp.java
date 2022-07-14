@@ -51,6 +51,69 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Scott-Holmes-Storybook.wav");
             songs.put(s.getTtile(), s);
 
+            s = new Song();
+            s.setArtist("Mid Air Machine");
+            s.setTitle("Burn It Down");
+            s.setYear("2001");
+            s.setGenre("Heavy Metal");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Mid-Air-Machine-Burn-It-Down.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Kitkat Club");
+            s.setTitle("Welcome");
+            s.setYear("2005");
+            s.setGenre("Pop Funk");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Kitkat-Club-Welcome.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Kathleen Martin");
+            s.setTitle("El Preso Numbero Nueve");
+            s.setYear("2003");
+            s.setGenre("Spanish Rock");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Kathleen-Martin-El-Preso-Numero-Nueve.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Dee Yan Key");
+            s.setTitle("Vacaciones Salsa");
+            s.setYear("2001");
+            s.setGenre("Salsa");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Dee-Yan-Key-Vacaciones-Salsa.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Checkie Brown");
+            s.setTitle("Wirklich Wichtig");
+            s.setYear("2001");
+            s.setGenre("Folk");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Checkie-Brown-Wirklich-Wichtig.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Checkie Brown");
+            s.setTitle("Tanzen");
+            s.setYear("2003");
+            s.setGenre("Folk");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Checkie-Brown-Tanzen.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Bisou");
+            s.setTitle("Journey of King");
+            s.setYear("2002");
+            s.setGenre("Pop");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Bisou-Journey-of-King.wav");
+            songs.put(s.getTtile(), s);
+
+            s = new Song();
+            s.setArtist("Ava Luna");
+            s.setTitle("Cement Lunch");
+            s.setYear("2008");
+            s.setGenre("Emo Rock");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Ava-Luna-Cement-Lunch.wav");
+            songs.put(s.getTtile(), s);
 
 
         // create a scanner for user input
@@ -109,10 +172,11 @@ static HashMap<String, Song> songs = new HashMap<>();
             case "s":
                 System.out.println("-->Search by title<--");
                 Scanner input = new Scanner(System.in);
-                System.out.println("Enter Title");
+                System.out.println("Enter Title:");
                 String title = input.nextLine();
                 Song song = songs.get(title);
 
+            /*created if or else statement */
                 if (song !=null)
                 {
                     System.out.println("Current selection is playing");
@@ -125,7 +189,7 @@ static HashMap<String, Song> songs = new HashMap<>();
 
                 case "l":
                 System.out.println("-->Library<--");
-                for (Map.Entry<String, Song> s : songs.entrySet()) {
+                for(Map.Entry<String, Song> s : songs.entrySet()) {
                     System.out.println("Title: " + s.getValue().getTitle());
                     System.out.println("Artist: " + s.getValue().getArtist());
                     System.out.println("Genre: " + s.getValue().getGenre());
@@ -133,7 +197,6 @@ static HashMap<String, Song> songs = new HashMap<>();
                     System.out.println("");
 
                 }
-
 
                 break;
                 
