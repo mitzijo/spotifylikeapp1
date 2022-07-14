@@ -1,6 +1,8 @@
 package com.spotifylikeapp;
 import java.io.File; 
-import java.io.IOException; 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner; 
   
 import javax.sound.sampled.AudioInputStream; 
@@ -27,9 +29,29 @@ public class SpotifyLikeApp {
     String status;
     Long position;
     static Clip audioClip;
+static HashMap<String, Song> songs = new HashMap<>();
+
+
 
     // "main" makes this class a java app that can be executed
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
+        Song s = new Song (); 
+            s.setArtist("The Dubbstyle");
+            s.setTitle("Zumbido");
+            s.setYear("2002");
+            s.setGenre("technopop");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/The-Dubbstyle-Zumbido.wav");
+            songs.put(s.getTtile(), s); 
+
+            s = new Song();
+            s.setArtist("Scott Holmes");
+            s.setTitle("Storybook");
+            s.setYear("2003");
+            s.setGenre("Rock");
+            s.setFilePath("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/Scott-Holmes-Storybook.wav");
+            songs.put(s.getTtile(), s);
+
+
 
         // create a scanner for user input
         Scanner input = new Scanner(System.in);
@@ -86,15 +108,38 @@ public class SpotifyLikeApp {
 
             case "s":
                 System.out.println("-->Search by title<--");
+                Scanner input = new Scanner(System.in);
+                System.out.println("Enter Title");
+                String title = input.nextLine();
+                Song song = songs.get(title);
+
+                if (song !=null)
+                {
+                    System.out.println("Current selection is playing");
+                    play(song.getFilePath());
+
+                } else {
+                    System.out.println("Please search again");
+            }
                 break;
 
-            case "l":
+                case "l":
                 System.out.println("-->Library<--");
+                for (Map.Entry<String, Song> s : songs.entrySet()) {
+                    System.out.println("Title: " + s.getValue().getTitle());
+                    System.out.println("Artist: " + s.getValue().getArtist());
+                    System.out.println("Genre: " + s.getValue().getGenre());
+                    System.out.println("Year: " + s.getValue().getYear());
+                    System.out.println("");
+
+                }
+
+
                 break;
                 
             case "p":
                 System.out.println("-->Play<--");
-                play();
+             
                 break;
 
             case "q":
@@ -110,11 +155,10 @@ public class SpotifyLikeApp {
     /*
      * plays an audio file
      */
-    public static void play() {
+    public static void play(String filePath) {
 
         // open the audio file
-        // src\library\example audio\cropped_wav\The-Dubbstyle-Zumbido.wav
-        final File file = new File("/Users/mitzichavez/Documents/GitHub/spotifylikeapp/spotifylikeapp/src/main/java/com/spotifylikeapp/wav/The-Dubbstyle-Zumbido.wav");
+        final File file = new File(filePath);
 
         try {
         
